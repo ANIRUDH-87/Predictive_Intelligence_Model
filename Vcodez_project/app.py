@@ -58,7 +58,9 @@ with nav7:
 st.markdown("---")
 
 # ================= LOAD DATA =================
-df = pd.read_csv(os.path.join(BASE_DIR, "ai4i2020.csv"))failure_cols = ['TWF', 'HDF', 'PWF', 'OSF', 'RNF']
+df = pd.read_csv(os.path.join(BASE_DIR, "ai4i2020.csv"))
+
+failure_cols = ['TWF', 'HDF', 'PWF', 'OSF', 'RNF']
 df = df.drop(columns=[col for col in failure_cols if col in df.columns])
 
 # ================= MODEL PREP =================
@@ -348,4 +350,5 @@ elif st.session_state.page == "SMOTE":
     - Often increases Recall  
     - Useful for imbalanced datasets  
     """)
+
 
