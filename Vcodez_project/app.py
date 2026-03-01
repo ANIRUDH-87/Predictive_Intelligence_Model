@@ -12,6 +12,9 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 from sklearn.preprocessing import LabelEncoder
 from imblearn.over_sampling import SMOTE
 
+import os
+st.write(os.listdir())
+
 # ================= PAGE CONFIG =================
 st.set_page_config(page_title="Predictive Intelligence Dashboard", layout="wide")
 
@@ -345,4 +348,5 @@ elif st.session_state.page == "SMOTE":
     - Improves class balance  
     - Often increases Recall  
     - Useful for imbalanced datasets  
+
     """)
