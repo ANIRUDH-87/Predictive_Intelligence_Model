@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import os
 import seaborn as sns
 import plotly.graph_objects as go
 import numpy as np
@@ -12,8 +13,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 from sklearn.preprocessing import LabelEncoder
 from imblearn.over_sampling import SMOTE
 
-import os
-st.write(os.listdir())
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # ================= PAGE CONFIG =================
 st.set_page_config(page_title="Predictive Intelligence Dashboard", layout="wide")
@@ -58,8 +58,7 @@ with nav7:
 st.markdown("---")
 
 # ================= LOAD DATA =================
-df = pd.read_csv("ai4i2020.csv")
-failure_cols = ['TWF', 'HDF', 'PWF', 'OSF', 'RNF']
+df = pd.read_csv(os.path.join(BASE_DIR, "ai4i2020.csv"))failure_cols = ['TWF', 'HDF', 'PWF', 'OSF', 'RNF']
 df = df.drop(columns=[col for col in failure_cols if col in df.columns])
 
 # ================= MODEL PREP =================
@@ -348,5 +347,5 @@ elif st.session_state.page == "SMOTE":
     - Improves class balance  
     - Often increases Recall  
     - Useful for imbalanced datasets  
-
     """)
+
